@@ -72,6 +72,9 @@ public class BlackJack {
     private static void drawDealer() {
         if (isDealerDarw()) {
             drawDealerTrump();
+            showDistributeMessage(DEALER, dealerTrumpList.get(dealerTrumpList.size() - 1));
+            showRankSumMessage(DEALER, dealerRankSum);
+            confirmationNum();
             drawDealer();
         }
     }
@@ -83,9 +86,6 @@ public class BlackJack {
     private static void drawDealerTrump() {
         dealerTrumpList.add(getTrumpRank());
         addDealerRankSum(dealerTrumpList.get(dealerTrumpList.size() - 1));
-        showDistributeMessage(DEALER, dealerTrumpList.get(dealerTrumpList.size() - 1));
-        showRankSumMessage(DEALER, dealerRankSum);
-        confirmationNum();
     }
 
     private static void drawPlayerTrump() {
@@ -93,6 +93,9 @@ public class BlackJack {
         String playerReply = scanner.next();
         if (isDraw(playerReply)) {
             drawPlayerCard();
+            showDistributeMessage(PLAYER, playerTrumpList.get(playerTrumpList.size() - 1));
+            showRankSumMessage(PLAYER, playerRankSum);
+            confirmationNum();
             drawPlayerTrump();
         }
         return;
@@ -109,9 +112,6 @@ public class BlackJack {
     private static void drawPlayerCard() {
         playerTrumpList.add(getTrumpRank());
         addPlayerRankSum(playerTrumpList.get(playerTrumpList.size() - 1));
-        showDistributeMessage(PLAYER, playerTrumpList.get(playerTrumpList.size() - 1));
-        showRankSumMessage(PLAYER, playerRankSum);
-        confirmationNum();
     }
 
     private static void showTrumpTotal() {
